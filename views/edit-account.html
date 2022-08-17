@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-    <title>Create Account</title>
+    <title>Edit Account</title>
     <!-- CSS -->
     <style>
         :root {
@@ -61,27 +61,17 @@
             margin-bottom: 4px;
         }
 
-        .input {
-            background-color: var(--text-input-field);
-            border: none;
-            border-radius: 8px;
-            height: 30px;
+        .value {
+            margin: 8px 0 32px 0;
+            color: var(--very-light-pink);
             font-size: var(--md);
-            padding: 4px;
-            margin-bottom: 12px;
         }
 
-        .input-name,
-        .input-email,
-        .input-password {
-            margin-bottom: 24px;
-        }
-
-        .primary-button {
-            background-color: var(--hospital-green);
-            border: none;
+        .secondary-button {
+            border: 1px solid var(--hospital-green);
             border-radius: 8px;
-            color: var(--white);
+            color: var(--hospital-green);
+            background-color: var(--white);
             font-weight: 700;
             height: 40px;
             width: 100%;
@@ -114,36 +104,27 @@
                 <div>
                     <!-- NAME -->
                     <label for="name" class="label">Name</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        placeholder="John Doe" 
-                        class="input input-name"
-                    />
+                    <p class="value">
+                        John Doe
+                    </p>
     
                     <!-- EMAIL -->
                     <label for="email" class="label">Email address</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        placeholder="johndoe@gmail.com" 
-                        class="input input-email"
-                    />
+                    <p class="value">
+                        johndoe@gmail.com
+                    </p>
     
                     <!-- PASSWORD -->
                     <label for="password" class="label">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        placeholder="********" 
-                        class="input input-password"
-                    />
+                    <p class="value">
+                        ********
+                    </p>
                 </div>
 
                 <input 
                     type="submit" 
-                    value="Save" 
-                    class="primary-button login-button"
+                    value="Edit" 
+                    class="secondary-button login-button"
                 />
             </form>
         </div>
