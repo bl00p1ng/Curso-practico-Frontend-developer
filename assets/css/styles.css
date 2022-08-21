@@ -23,15 +23,6 @@ body {
     margin: 0;
 }
 
-/* UTILITIES */
-.hidden {
-    display: none;
-}
-
-.slide-right {
-    left: 0 !important;
-}
-
 /* ********** NAVBAR ********** */
 .menu {
     display: none;
@@ -118,6 +109,7 @@ body {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 10;
 }
 
 .desktop-menu ul {
@@ -151,11 +143,14 @@ body {
 
 /* MOBILE MENU */
 .mobile-menu {
+    background-color: var(--white);
     padding: 36px 20px;
     position: absolute;
     top: 59px;
     left: -200px;
     transition: 400ms;
+    z-index: 10;
+    height: 100%;
 }
 
 .title {
@@ -198,6 +193,105 @@ ul.categories ~ ul {
 }
 /* ********** NAVBAR ********** */
 
+/* ********** SHOPPING CART ********** */
+.my-order {
+    background-color: var(--white);
+    width: 360px;
+    padding: 16px 0;
+    position: absolute;
+    right: 0;
+}
+
+.title-container {
+    display: flex;
+    margin-left: 16px;
+    margin-bottom: 24px;
+}
+
+.title-container img {
+    transform: rotate(180deg);
+    margin-right: 16px;
+}
+
+.title {
+    font-size: var(--lg);
+}
+
+.shopping-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px;
+}
+
+.shopping-cart figure img {
+    width: 120px;
+    border-radius: 16px;
+}
+
+.shopping-cart .product-name {
+    color: var(--very-light-pink);
+}
+
+.shopping-cart .price {
+    font-weight: 700;
+}
+
+.my-order-container {
+    background-color: var(--white);
+    position: sticky;
+    bottom: 0;
+    padding: 8px;
+}
+
+.my-order-content {
+    background-color: var(--text-input-field);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.my-order-content p {
+    font-weight: 700;
+    margin: 0;
+}
+
+.my-order-content p > span {
+    display: block;
+}
+
+.my-order-content p > span:first-child {
+    font-size: var(--md);
+}
+
+.primary-button {
+    width: 100%;
+    background-color: var(--hospital-green);
+    border: none;
+    border-radius: 8px;
+    color: var(--white);
+    font-weight: 700;
+    height: 40px;
+    cursor: pointer;
+    font-size: var(--md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* ********** SHOPPING CART ********** */
+
+/* ********** UTILITIES ********** */
+.hidden {
+    display: none;
+}
+
+.slide-right {
+    left: 0;
+}
+
 /* ********** RESPONSIVE ********** */
 @media (max-width: 780px) {
     .menu {
@@ -208,6 +302,10 @@ ul.categories ~ ul {
     .navbar-email,
     .desktop-menu {
         display: none;
+    }
+
+    .my-order {
+        width: 100%;
     }
 }
 
