@@ -6,16 +6,45 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const navbarShoppingCart = document.querySelector('.navbar-shopping-cart')
 const productOrders = document.querySelector('.my-order')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetail = document.querySelector('.product-detail')
+const closeIcon = document.querySelector('.close-icon')
 
 // EVENT LISTENERS
 navbarEmail.addEventListener('click', () => toggleElement(navbarDesktopMenu, 'hidden'))
 hamburguerMenu.addEventListener('click', () => toggleElement(mobileMenu, 'slide-right'))
 navbarShoppingCart.addEventListener('click', () => toggleElement(productOrders, 'hidden'))
+closeIcon.addEventListener('click', () => hideElement(productDetail))
 
 // FUNCIONES
+// Ocultar un elemento
+const hideElement = (element) => {
+    element.classList.add('hidden')
+}
+
 // Agregar o quitar una clase a un elemento
 const toggleElement = (element, className) => {
+    /* Si el detalle de un producto esta abierto y se abre 
+    el carrito, ocultar el detalle del producto */
+    const isDetailOpen = !productDetail.classList.contains('hidden')
+
+    if (isDetailOpen) {
+        hideElement(productDetail)
+    }
+
     element.classList.toggle(className)
+}
+
+// Mostrar un elemento
+const showElement = (element) => {
+    /* Si el carrito esta abierto y se abre el detalle 
+    de un producto, cerrar el carrito */
+    const isCartOpen = !productOrders.classList.contains('hidden')
+
+    if (isCartOpen) {
+        hideElement(productOrders)
+    }
+
+    element.classList.remove('hidden')
 }
 
 // Agregar productos al DOM
@@ -31,6 +60,8 @@ const renderProducts = (productList) => {
         const image = document.createElement('img')
         image.src = img
         image.alt = 'Product image'
+        // Abrir detalle del producto al hacer click en la imagen
+        image.addEventListener('click', () => showElement(productDetail))
     
         /* Infomación del producto:
         - <div> -> precio, nombre
